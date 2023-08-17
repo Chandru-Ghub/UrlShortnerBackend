@@ -56,7 +56,7 @@ app.post('/shorturl', async (req, res) => {
 
     await newURL.save();
     
-    res.json({ shortURL: `http://localhost:3200/${newURL.shortCode}` });
+    res.json({ shortURL: `${req.hostname}/${newURL.shortCode}` });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Internal server error' });
